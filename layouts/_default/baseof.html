@@ -18,9 +18,19 @@
     {{ end }}
   </div>
 
+  {{ if not .IsHome }}
   {{ block "footer" . }}
     {{ partial "footer.html" . }}
   {{ end }}
+  {{ end }}
+
+  <script src="{{ "assets/main.js" | absURL }}"></script>
+  <script src="{{ "assets/prism.js" | absURL }}"></script>
+
+  {{ if $.Site.Params.showLanguageSelector }}
+  <script src="{{ "assets/languageSelector.js" | absURL }}"></script>
+  {{ end }}
+
 </div>
 
 </body>

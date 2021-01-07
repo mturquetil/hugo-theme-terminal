@@ -49,3 +49,4 @@ desktopMenuTrigger &&
       menuMore.style.right = 0;
     }
   });
+

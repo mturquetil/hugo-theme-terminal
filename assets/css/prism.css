@@ -98,7 +98,6 @@ pre[class*="language-"].line-numbers > code {
 .code-toolbar {
 	position: relative;
 	margin: var(--code-margin) 0;
-	padding: 20px;
 	border: 1px solid rgba(255, 255, 255, .1);
 
 	+ .code-toolbar,

@@ -4,6 +4,7 @@
       {{ .Content }}
     </div>
   {{ end }}
+  {{ if not .IsHome }}
   <div class="posts">
     {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
     {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
@@ -42,6 +43,7 @@
           <img src="{{ .Params.Cover | absURL }}" class="post-cover" alt="{{ .Title | plainify | default " " }}" />
         {{ end }}
 
+		{{ if and ( or (.Params.showFullContent) (.Description) ) (not .Params.isTitle) }}
         <div class="post-content">
           {{ if .Params.showFullContent }}
           {{ .Content | markdownify }}
@@ -53,6 +55,7 @@
           {{ end }}
           {{ end }}
         </div>
+        {{ end }}
 
         {{ if not .Params.showFullContent }}
         <div>
@@ -64,4 +67,5 @@
     {{ end }}
     {{ partial "pagination.html" . }}
   </div>
+  {{ end }}
 {{ end }}
