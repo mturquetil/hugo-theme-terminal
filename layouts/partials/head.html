@@ -63,8 +63,8 @@
 {{ end }}
 
 <!-- RSS -->
-{{ with .OutputFormats.Get "RSS" }}
-  <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+{{ if .Site.Params.rssURL }}
+  <link href="{{ .Site.Params.rssURL }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
 {{ end }}
 
 <!-- JSON Feed -->
